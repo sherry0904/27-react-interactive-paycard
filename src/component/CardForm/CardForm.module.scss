@@ -1,0 +1,88 @@
+.cardform {
+    width: 100%;
+    padding: 180px 35px 35px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 30px 60px 0 rgba(90,116,148,0.4);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    &__item {
+        margin-bottom: 10px;
+        &__number {
+            grid-column: 1/3;
+            grid-row: 1/2;
+        }
+        &__holder {
+            grid-column: 1/3;
+            grid-row: 2/3;
+        }
+        &__expires{
+            grid-column: 1/2;
+            grid-row: 3/4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            label {
+                width: 100%;
+            }
+            select {
+                width: 49%;
+            }
+        }
+        &__cvc {
+            width: 95%;
+            grid-column: 2/3;
+            grid-row: 3/4;
+            grid-gap: 5px;
+        }
+    }
+    &__label {
+        display: inline-block;
+        width: 100%;
+        color: #1a3b5d;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    &__input {
+        border: 1px solid #ced6e0;
+        padding: 5px 15px;
+        transition: all 0.3s ease-in-out;
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        &:hover, &:focus, &:focus-visible {
+            border-color: #3d9cff;
+            outline: none;
+        }
+    }
+    &__submit {
+        grid-column: 1/3;
+        grid-template: 4/5;
+        height: 55px;
+        font-size: 22px;
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+        background: #2364d2;
+        width: 100%;
+        box-shadow: 3px 10px 20px 0 rgba(35,100,210,0.3);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cardform {
+        grid-template-rows: repeat(5, 1fr);
+        &__item {
+            &__expires {
+                grid-column: 1/3;
+                grid-row: 3/4;
+            }
+            &__cvc {
+                width: 100%;
+                grid-column: 1/3;
+                grid-row: 4/5;
+            }
+        }
+    }
+}
