@@ -2,7 +2,7 @@
     max-width: 430px;
     width: 100%;
     height: 270px;
-    color: #fff;
+    color: #ccc;
     position: relative;
     margin-bottom: -130px;
     &__front {
@@ -38,8 +38,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(#000,0.6);
+            background-color: rgba(#fff,0.95);
         }
+    }
+    &__focus {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 0;
+        left: 0;
+        border: 1px solid #d2e9ff;
     }
     &__wrapper {
         padding: 25px 15px;
@@ -153,6 +161,51 @@
             transform: rotateY(0deg);
         }
     }
+}
+
+.slide-up-enter {
+    opacity: 0;
+    transform: translateY(15px);
+}
+.slide-up-enter-active {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.1s;
+}
+.slide-up-exit {
+    opacity: 1;
+    position: absolute;
+}
+.slide-up-exit-active {
+    opacity: 0;
+    transform: translateY(-15px);
+    pointer-events: none;
+}
+
+.slide-up-enter-active,
+.slide-up-exit-active {
+    transition: all 0.25s ease-in-out;
+}
+
+.fade-enter {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+.fade-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+}
+.fade-exit {
+    opacity: 1;
+    transform: translateX(0%);
+}
+.fade-exit-active {
+    opacity: 0;
+    transform: translateX(100%);
+}
+.fade-enter-active,
+.fade-exit-active {
+    transition: opacity 500ms, transform 500ms;
 }
 
 @media screen and (max-width: 480px) {

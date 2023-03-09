@@ -1,7 +1,11 @@
 import React from 'react'
 import styles from './CreditCard.module.scss'
+import { useSelector } from 'react-redux'
 
 export default function CreditCardBack() {
+
+    const cardCVC = useSelector(state => state.cardCVC);
+
     return (
         <div className={styles.creditcard__back}>
             <div className={styles.creditcard__bg}>
@@ -14,7 +18,7 @@ export default function CreditCardBack() {
             <div className={styles.creditcard__body}>
                 <div className={styles.creditcard__cvc}>
                     <div className={styles.creditcard__cvc__label}>cvc</div>
-                    <div className={styles.creditcard__cvc__input}></div>
+                    <div className={styles.creditcard__cvc__input}>{cardCVC}</div>
                 </div>
             </div>
             <div className={styles.creditcard__footer}>

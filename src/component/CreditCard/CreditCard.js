@@ -2,19 +2,15 @@ import { useState } from 'react'
 import CreditCardBack from './CreditCardBack'
 import CreditCardFront from './CreditCardFront'
 import styles from './CreditCard.module.scss'
+import { useSelector } from 'react-redux'
 
 
 export default function CreditCard() {
-    const [isFlipped, setIsFlipped] = useState(false);
-
-    const flip = () =>{
-        console.log('flip')
-        setIsFlipped(!isFlipped);
-    } 
+    const cardSide = useSelector(state => state.cardSide);
 
     return (
         <>
-            <div className={`${styles.creditcard} ${isFlipped && styles.creditcardFlipped}`}>
+            <div className={`${styles.creditcard} ${cardSide === "back" && styles.creditcardFlipped}`}>
                 <CreditCardFront></CreditCardFront>
                 <CreditCardBack></CreditCardBack>
             </div>
